@@ -6,6 +6,8 @@
 [![Platform: Google AI Studio](https://img.shields.io/badge/Platform-Google%20AI%20Studio-4285F4.svg)](https://ai.studio)
 [![Creator: @milonspace](https://img.shields.io/badge/Creator-%40milonspace-000000.svg?logo=x)](https://x.com/milonspace)
 
+![SentinelAI Security Console Screenshot](https://lh3.googleusercontent.com/d/1YsleIacd9RkF7AVaHBBNHFTItjl2agm6=s1920-no-nu-rw)
+
 SentinelAI is an open-source security console for evaluating, testing, and protecting large language model applications against system prompt extraction, indirect prompt injection, instruction leaks, and adversarial jailbreaks.
 
 Built with Google Gemini 3.8 Flash and Gemini 3.8 Flash Cyber, the platform provides real-time prompt posture auditing, pre-flight safety guardrails, and compliance inspection.
