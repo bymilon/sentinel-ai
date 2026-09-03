@@ -1,158 +1,203 @@
-# ZeroLeaks 🛡️⚡
-
-> **Open-Source Enterprise AI Instruction Firewall & Prompt Posture Platform**  
-> Engineered 100% natively via autonomous **AI Coding Agent Handoff Pipelines** in **Google AI Studio App Builders**, powered by the latest **Google Gemini 3.8 Flash** and **Gemini 3.8 Flash Cyber** models.
+# SentinelAI
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Model: Google Gemini 3.8 Flash](https://img.shields.io/badge/Engine-Gemini%203.8%20Flash%20%26%20Cyber-8E75FF.svg)](https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-bymilon%2Fsentinel--ai-181717.svg?logo=github)](https://github.com/bymilon/sentinel-ai)
+[![Engine: Gemini 3.8 Flash](https://img.shields.io/badge/Engine-Gemini%203.8%20Flash%20%26%20Cyber-8E75FF.svg)](https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/)
 [![Platform: Google AI Studio](https://img.shields.io/badge/Platform-Google%20AI%20Studio-4285F4.svg)](https://ai.studio)
 [![Creator: @milonspace](https://img.shields.io/badge/Creator-%40milonspace-000000.svg?logo=x)](https://x.com/milonspace)
 
----
+SentinelAI is an open-source security console for evaluating, testing, and protecting large language model applications against system prompt extraction, indirect prompt injection, instruction leaks, and adversarial jailbreaks.
 
-## 🌟 Overview
-
-**ZeroLeaks** is a high-performance, dark-mode security console designed to evaluate, test, and protect enterprise LLM applications against system prompt extraction, indirect prompt injection, instruction leaks, and adversarial jailbreaks.
-
-Built with obsessive attention to design tokens, sub-pixel alignment, and accessible typography, ZeroLeaks demonstrates what is possible when human intent pairs with state-of-the-art AI coding agents using structured handoff workflows.
-
-### 🔬 Powered by Gemini 3.8 Flash & Gemini 3.8 Flash Cyber
-ZeroLeaks leverages Google DeepMind's newest frontier models:
-- **[Gemini 3.8 Flash & Gemini 3.8 Flash Cyber](https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/)**: Optimized for near-instant inference, advanced automated vulnerability discovery, cybersecurity heuristics, and real-time prompt protection firewall evaluation.
-- **Google AI Studio App Builders**: The entire platform—from system architecture, layout math, color palettes, and component states to accessibility and automated test suites—was built end-to-end directly in Google AI Studio.
+Built with Google Gemini 3.8 Flash and Gemini 3.8 Flash Cyber, the platform provides real-time prompt posture auditing, pre-flight safety guardrails, and compliance inspection.
 
 ---
 
-## 🚀 The AI Agent-Native Experience: DX & AX
+## Overview
 
-ZeroLeaks represents a case study in **Agent Experience (AX)** and **Developer Experience (DX)** co-design:
+Large language models deployed in production face adversarial prompt extraction and indirect injection attacks. SentinelAI acts as an inspection layer between user inputs and downstream LLM endpoints. It detects extraction patterns, evaluates instruction defense robustness, and provides actionable remediation guidance.
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                      Google AI Studio Agent Pipeline                        │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│  [Human Intent] ──────► [Gemini 3.8 Flash Engine]                          │
-│                               │                                             │
-│       ┌───────────────────────┼─────────────────────────┐                   │
-│       ▼                       ▼                         ▼                   │
-│  [arch-agent]           [data-agent]             [controls-agent]           │
-│   Layout math            Column alignment         Hover/focus loops         │
-│   Bidi logicals          Trailing-edge numbers    Touch targets             │
-│       │                       │                         │                   │
-│       └───────────────────────┼─────────────────────────┘                   │
-│                               ▼                                             │
-│                 [.tasks/ Tracking Single Source]                            │
-│                 Continuous validation: lint + build                         │
-│                               │                                             │
-│                               ▼                                             │
-│                 [Production ZeroLeaks Artifact]                             │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+### Foundation models
 
-### 1. Developer Experience (DX)
-- **Zero Configuration Friction**: Runs instantly with Vite + React 19 + Tailwind CSS v4.
-- **Pixel-Accurate Design Tokens**: Every spacing unit, color hex, and specular rim border is tokenized in `src/tokens/designTokens.ts` and inspectable in the live token modal.
-- **Strict Verification Loops**: Incremental verification via `npm run lint` and `npm run build` at every single pipeline stage.
-
-### 2. Agent Experience (AX)
-- **Agent Handoff Contracts**: Defined in `AGENTS.md` and tracked using Linear-style markdown files under `.tasks/`.
-- **Single Source of Truth**: All progress, blockers, priority, and agent ownership are maintained in versioned `YYYY-MM-DD-TSK-{N}-{name}-TASKS.md` matrices.
-- **Domain Specialization**: Agent roles are partitioned into focused teams (`arch-agent`, `data-agent`, `controls-agent`, `docs-agent`, `dx-agent`).
+- **[Gemini 3.8 Flash and Gemini 3.8 Flash Cyber](https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/)**: Low-latency inference, automated vulnerability discovery, cybersecurity heuristics, and real-time firewall evaluation.
+- **Google AI Studio**: Cloud development environment where architecture, component states, accessibility, and automated verification suites were built.
 
 ---
 
-## 🎯 Key Features
+## Features
 
-- **Real-Time Security Posture Score**: Live index (0–100) assessing instructions against OWASP Top 10 for LLMs.
-- **Attack Vector Timeline**: Real-time incident stream tracking jailbreaks, roleplay subversions, delimiter leaks, and encoding bypasses.
-- **Agent Guard Firewall**: Active pre-flight and post-execution guardrail toggles to block prompt exfiltration before it reaches customer endpoints.
-- **Interactive Preset Scans**: Test prompts instantly against multiple foundation models with simulated adversarial injections.
-- **Cryptographic Audit Reports**: Compliance reports ready for SOC 2 and enterprise security governance.
-- **Full Design System Inspector**: Built-in inspector exporting tokens to CSS variables and Tailwind theme configurations.
-- **Universal Logical Properties & Cursor Fidelity**: Full bidirectional RTL/LTR layout support and complete interactive cursor feedback.
+- **Security posture score.** Calculates a live index from 0 to 100 based on prompt exposure risk and OWASP Top 10 for LLMs.
+- **Attack vector timeline.** Logs adversarial jailbreak attempts, indirect injections, roleplay bypasses, and delimiter leaks.
+- **Agent Guard firewall.** Configures active rules to block sensitive credential exfiltration and system instruction leaks before responses reach end users.
+- **Interactive scan console.** Runs prompt injection tests against live models with custom adversarial payloads.
+- **Audit reports.** Generates structured compliance exports for security governance and SOC 2 audits.
+- **Design system inspector.** Displays token definitions and exports variables to CSS and Tailwind formats.
+- **Bidirectional layout support.** Uses CSS logical properties to render LTR and RTL directions cleanly.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech stack
 
-- **Framework**: [React 19](https://react.dev/) with [Vite](https://vite.dev/)
+- **Frontend framework**: [React 19](https://react.dev/) with [Vite](https://vite.dev/)
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **Animation**: [Motion](https://motion.dev/)
 - **Icons**: [Lucide React](https://lucide.dev/)
-- **AI Backend**: `@google/genai` TypeScript SDK (Gemini 3.8 Flash & Gemini 3.8 Flash Cyber)
-- **Runtime**: Node.js 20+ / Containerized Cloud Run
+- **AI SDK**: `@google/genai` TypeScript SDK (Gemini 3.8 Flash and Gemini 3.8 Flash Cyber)
+- **Runtime**: Node.js 20 or later
 
 ---
 
-## 📦 Quick Start
+## Prerequisites and system requirements
 
-### 1. Clone the Repository
+Before installing, ensure your machine meets the following requirements:
+
+- **Node.js**: Version 20.0.0 or higher. Check with `node -v`.
+- **Package manager**: npm 10+, pnpm 9+, or yarn 1.22+. Check with `npm -v`.
+- **Supported operating systems**:
+  - macOS: 12.0 Monterey or later (Apple Silicon and Intel).
+  - Linux: Ubuntu 20.04+, Debian 11+, Fedora 38+, Arch Linux, or any distribution with glibc 2.31+.
+  - Windows: Windows 10 or 11 running PowerShell 7+, Command Prompt, or WSL2 (Ubuntu recommended).
+
+---
+
+## Getting started
+
+### 1. Clone the repository
+
 ```bash
-git clone https://github.com/milonspace/zeroleaks.git
-cd zeroleaks
+git clone https://github.com/bymilon/sentinel-ai.git
+cd sentinel-ai
 ```
 
-### 2. Install Dependencies
+### 2. Install dependencies
+
 ```bash
 npm install
 ```
 
-### 3. Configure Environment Variables
-Copy the example environment template:
+### 3. Configure environment variables
+
+Create your local environment configuration file:
+
+**macOS and Linux:**
 ```bash
 cp .env.example .env
 ```
 
-Add your Gemini API key (optional for local UI development, required for live model execution):
+**Windows (PowerShell):**
+```powershell
+Copy-Item .env.example .env
+```
+
+**Windows (Command Prompt):**
+```cmd
+copy .env.example .env
+```
+
+Add your Gemini API key to `.env`. The key is optional for reviewing the UI and mock telemetry, but required for live model execution:
+
 ```env
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-### 4. Start Development Server
+### 4. Start the development server
+
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### 5. Build for Production
+The application starts on `http://localhost:3000`.
+
+### 5. Build for production
+
 ```bash
 npm run build
 ```
 
+The output compiles into the `dist/` directory.
+
 ---
 
-## 📋 Task & Agent Tracking Methodology
+## Available scripts
 
-ZeroLeaks adheres to a strict agent task pipeline. Every milestone or architectural refactor is recorded in the `.tasks/` directory:
+All scripts run across macOS, Linux, and Windows:
+
+| Command | Action |
+| :--- | :--- |
+| `npm run dev` | Starts the Vite development server on port 3000 bound to `0.0.0.0`. |
+| `npm run build` | Compiles TypeScript and packages production assets into `dist/`. |
+| `npm run lint` | Runs `tsc --noEmit` to verify type safety across all files. |
+| `npm run preview` | Serves the production build locally for verification. |
+| `npm run clean` | Removes the `dist/` directory using Node.js file system APIs. |
+
+---
+
+## Architecture and agent workflow
+
+The platform was built with autonomous AI coding agents inside Google AI Studio App Builders. Tasks were partitioned across specialized roles:
+
+- `arch-agent`: Shell layout, grid structure, and CSS logical properties.
+- `data-agent`: Tables, trailing number alignment, and telemetry models.
+- `controls-agent`: Focus rings, touch target dimensions, and interactive states.
+- `dx-agent`: Scripts, build configuration, and environment setup.
+- `docs-agent`: Specifications, task records, and licensing.
+- `ui-branding-agent`: Token fidelity and attribution links.
+
+```
++-----------------------------------------------------------------------------+
+|                       Google AI Studio Agent Pipeline                       |
++-----------------------------------------------------------------------------+
+|                                                                             |
+|   Human Intent --------> Gemini 3.8 Flash Engine                            |
+|                                |                                            |
+|        +-----------------------+-----------------------+                    |
+|        |                       |                       |                    |
+|        v                       v                       v                    |
+|   arch-agent              data-agent              controls-agent            |
+|   Layout math             Column alignment        Focus rings               |
+|   Logical properties      Trailing numbers        Touch targets             |
+|        |                       |                       |                    |
+|        +-----------------------+-----------------------+                    |
+|                                |                                            |
+|                                v                                            |
+|                 .tasks/ tracking single source                              |
+|                 Continuous validation: lint + build                         |
+|                                |                                            |
+|                                v                                            |
+|                 Production SentinelAI Artifact                              |
+|                                                                             |
++-----------------------------------------------------------------------------+
+```
+
+---
+
+## Task tracking
+
+All project changes are recorded in versioned markdown files inside `.tasks/`. Each file specifies task ownership, priority, dependency trees, and completion timestamps:
 
 ```
 .tasks/
 ├── 2026-09-02-TSK-1-layout-refinement-TASKS.md
 ├── 2026-09-02-TSK-2-aesthetic-harmony-TASKS.md
 ├── 2026-09-02-TSK-3-collapsible-sidebar-TASKS.md
-└── 2026-09-02-TSK-4-open-source-dx-ax-pipeline-TASKS.md
+├── 2026-09-02-TSK-4-open-source-dx-ax-pipeline-TASKS.md
+├── 2026-09-02-TSK-5-rebrand-sentinelai-TASKS.md
+└── 2026-09-03-TSK-6-unslop-readme-refactor-TASKS.md
 ```
 
-Each file contains:
-1. Agent Team ownership tables
-2. Linear-style status tracker tables (Priority, Status, Dependencies, Completed Date)
-3. Granular technical specifications and acceptance criteria
+---
+
+## Author and citation
+
+SentinelAI is created and maintained by **Milon**:
+- GitHub repository: [github.com/bymilon/sentinel-ai](https://github.com/bymilon/sentinel-ai)
+- GitHub profile: [@bymilon](https://github.com/bymilon)
+- X (Twitter): [@milonspace](https://x.com/milonspace)
+
+If you reference SentinelAI in research or security benchmarks, cite this repository or tag [@milonspace](https://x.com/milonspace).
 
 ---
 
-## 👤 Author & Citation
+## License
 
-Created with passion by **Milon**:
-- **X (Twitter)**: [@milonspace](https://x.com/milonspace)
-- **GitHub**: [github.com/milonspace](https://github.com/milonspace)
-
-If you find ZeroLeaks or the Agent Experience (AX) methodology helpful, please cite or tag [@milonspace](https://x.com/milonspace) and share your experience with the community!
-
----
-
-## 📄 License
-
-ZeroLeaks is released under the permissive [MIT License](LICENSE).  
-Copyright (c) 2026 Milon ([@milonspace](https://x.com/milonspace)) & ZeroLeaks Contributors.
+Distributed under the MIT License. See [LICENSE](LICENSE) for details.  
+Copyright (c) 2026 Milon ([@milonspace](https://x.com/milonspace)) and SentinelAI Contributors.

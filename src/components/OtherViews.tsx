@@ -103,10 +103,10 @@ export const ReportsView: React.FC = () => {
 
 export const TeamsView: React.FC = () => {
   const members = [
-    { name: 'Arthur Taylor', email: 'arthur@zeroleaks.ai', role: 'SecOps Lead (You)', avatar: 'A', status: 'Owner' },
-    { name: 'Elena Rostova', email: 'elena@zeroleaks.ai', role: 'Prompt Engineer', avatar: 'E', status: 'Admin' },
-    { name: 'Marcus Chen', email: 'marcus@zeroleaks.ai', role: 'Security Architect', avatar: 'M', status: 'Member' },
-    { name: 'Sophia Kim', email: 'sophia@zeroleaks.ai', role: 'Compliance Officer', avatar: 'S', status: 'Member' },
+    { name: 'Arthur Taylor', email: 'arthur@sentinelai.internal', role: 'SecOps Lead (You)', avatar: 'A', status: 'Owner' },
+    { name: 'Elena Rostova', email: 'elena@sentinelai.internal', role: 'Prompt Engineer', avatar: 'E', status: 'Admin' },
+    { name: 'Marcus Chen', email: 'marcus@sentinelai.internal', role: 'Security Architect', avatar: 'M', status: 'Member' },
+    { name: 'Sophia Kim', email: 'sophia@sentinelai.internal', role: 'Compliance Officer', avatar: 'S', status: 'Member' },
   ];
 
   return (
@@ -168,21 +168,21 @@ export const SettingsView: React.FC = () => {
           </span>
         </div>
         <div className="text-xs text-[#8e8e93]">
-          Cluster: <span className="text-white font-mono text-[11px]">us-east-1.zeroleaks.internal</span>
+          Cluster: <span className="text-white font-mono text-[11px]">us-east-1.sentinelai.internal</span>
         </div>
       </div>
 
       <div className="space-y-4 text-xs">
         <div className="p-5 rounded-2xl border border-[#1c1c1c] bg-[#050505] space-y-2.5 specular-rim-subtle">
           <label htmlFor="api-key-input" className="text-white font-medium block">
-            ZeroLeaks telemetry API key
+            SentinelAI telemetry API key
           </label>
           <div className="flex items-center gap-2 font-mono text-xs">
             <input
               id="api-key-input"
               type="password"
               readOnly
-              value="zl_live_9488301726a4f901cb6e"
+              value="sai_live_9488301726a4f901cb6e"
               className="flex-1 px-3 py-2 bg-[#090909] border border-[#222] rounded-xl text-[#8e8e93] focus:outline-none focus:border-[#444]"
             />
             <button
@@ -237,13 +237,28 @@ export const SettingsView: React.FC = () => {
           </div>
 
           <p className="text-[11px] text-[#a1a1aa] leading-relaxed [text-wrap:pretty]">
-            ZeroLeaks was engineered 100% natively via autonomous AI coding agent handoff pipelines inside{' '}
+            SentinelAI was engineered 100% natively via autonomous AI coding agent handoff pipelines inside{' '}
             <strong className="text-white font-medium">Google AI Studio App Builders</strong>, powered by the latest{' '}
             <strong className="text-white font-medium">Google Gemini 3.8 Flash</strong> and{' '}
             <strong className="text-white font-medium">Gemini 3.8 Flash Cyber</strong> models.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+            <a
+              href="https://github.com/bymilon/sentinel-ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between p-2.5 rounded-xl bg-[#0e0e12] hover:bg-[#14141a] border border-[#222228] transition-colors focus-ring press-scale cursor-pointer group"
+            >
+              <div className="flex flex-col">
+                <span className="text-xs font-medium text-white group-hover:text-[#60a5fa] transition-colors">
+                  GitHub Repository
+                </span>
+                <span className="text-[10px] text-[#71717a]">bymilon/sentinel-ai</span>
+              </div>
+              <ExternalLink className="w-3.5 h-3.5 text-[#71717a] group-hover:text-white" aria-hidden="true" />
+            </a>
+
             <a
               href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
               target="_blank"
@@ -254,7 +269,7 @@ export const SettingsView: React.FC = () => {
                 <span className="text-xs font-medium text-white group-hover:text-[#60a5fa] transition-colors">
                   Gemini 3.8 Flash & Cyber
                 </span>
-                <span className="text-[10px] text-[#71717a]">Official Announcement & Specs</span>
+                <span className="text-[10px] text-[#71717a]">Announcement & Specs</span>
               </div>
               <ExternalLink className="w-3.5 h-3.5 text-[#71717a] group-hover:text-white" aria-hidden="true" />
             </a>
@@ -269,7 +284,7 @@ export const SettingsView: React.FC = () => {
                 <span className="text-xs font-medium text-white group-hover:text-[#60a5fa] transition-colors">
                   Created by Milon
                 </span>
-                <span className="text-[10px] text-[#71717a]">@milonspace on X (Twitter)</span>
+                <span className="text-[10px] text-[#71717a]">@milonspace on X</span>
               </div>
               <ExternalLink className="w-3.5 h-3.5 text-[#71717a] group-hover:text-white" aria-hidden="true" />
             </a>

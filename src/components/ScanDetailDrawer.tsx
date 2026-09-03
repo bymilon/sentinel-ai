@@ -218,7 +218,7 @@ export const ScanDetailDrawer: React.FC<ScanDetailDrawerProps> = ({ scan, onClos
 
         {/* Footer */}
         <div className="px-6 py-3.5 pb-[calc(0.875rem+env(safe-area-inset-bottom))] border-t border-[#181818] bg-[#050505] flex items-center justify-between">
-          <span className="text-[11px] text-[#71717a]">ZeroLeaks Audit Engine v3.4</span>
+          <span className="text-[11px] text-[#71717a]">SentinelAI Audit Engine v3.4</span>
           <button
             type="button"
             onClick={onClose}

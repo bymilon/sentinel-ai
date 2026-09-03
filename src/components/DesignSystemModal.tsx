@@ -28,7 +28,7 @@ export const DesignSystemModal: React.FC<DesignSystemModalProps> = ({ isOpen, on
   const getCssVariablesExport = () => {
     return `:root {
   /* ==========================================================================
-     ZeroLeaks Design Tokens (Reverse Engineered & Extracted)
+     SentinelAI Design Tokens (Reverse Engineered & Extracted)
      ========================================================================== */
 
   /* Surfaces & Canvas */
@@ -120,7 +120,7 @@ export const DesignSystemModal: React.FC<DesignSystemModalProps> = ({ isOpen, on
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="text-base font-semibold text-white">
-                  ZeroLeaks Design System & Tokens
+                  SentinelAI Design System & Tokens
                 </h2>
                 <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-[#1f1f1f] text-neutral-300 border border-[#333]">
                   v1.0 Extracted
@@ -174,7 +174,7 @@ export const DesignSystemModal: React.FC<DesignSystemModalProps> = ({ isOpen, on
           {activeTab === 'colors' && (
             <div className="space-y-6">
               <div className="text-xs text-[#8e8e93] leading-relaxed">
-                The ZeroLeaks color system leverages true pitch black (#000000) base canvas with micro-luminance elevated surfaces (#050505 to #171717) and subdued desaturated status semantics to avoid visual fatigue in high-stress enterprise security monitoring.
+                The SentinelAI color system leverages true pitch black (#000000) base canvas with micro-luminance elevated surfaces (#050505 to #171717) and subdued desaturated status semantics to avoid visual fatigue in high-stress enterprise security monitoring.
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -270,7 +270,7 @@ export const DesignSystemModal: React.FC<DesignSystemModalProps> = ({ isOpen, on
           {activeTab === 'spacing' && (
             <div className="space-y-6">
               <div className="text-xs text-[#8e8e93]">
-                ZeroLeaks strictly adheres to an 8-point rhythmic grid with 4px half-step sub-grid alignment. Architectural sections are demarcated by razor-thin 1px border dividers (`#181818`) with balanced vertical and horizontal rhythm.
+                SentinelAI strictly adheres to an 8-point rhythmic grid with 4px half-step sub-grid alignment. Architectural sections are demarcated by razor-thin 1px border dividers (`#181818`) with balanced vertical and horizontal rhythm.
               </div>
 
               {/* Grid Border Visual Demo */}
@@ -305,7 +305,7 @@ export const DesignSystemModal: React.FC<DesignSystemModalProps> = ({ isOpen, on
           {activeTab === 'shadows' && (
             <div className="space-y-6">
               <div className="text-xs text-[#8e8e93]">
-                ZeroLeaks eliminates heavy artificial drop-shadows in favor of precision micro-bevels (subtle 1px inset specular lines) and restrained chromatic ambient glows for critical status alerts.
+                SentinelAI eliminates heavy artificial drop-shadows in favor of precision micro-bevels (subtle 1px inset specular lines) and restrained chromatic ambient glows for critical status alerts.
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -388,7 +388,7 @@ export const DesignSystemModal: React.FC<DesignSystemModalProps> = ({ isOpen, on
 
         {/* Footer */}
         <div className="px-6 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] border-t border-[#1c1c1c] bg-[#050505] flex items-center justify-between text-xs text-[#71717a]">
-          <span>ZeroLeaks Enterprise Design System v1.0</span>
+          <span>SentinelAI Enterprise Design System v1.0</span>
           <button
             onClick={onClose}
             className="px-3.5 py-1.5 bg-[#1a1a1a] hover:bg-[#252525] text-white rounded-xl transition-colors focus-ring press-scale cursor-pointer"

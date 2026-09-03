@@ -1,12 +1,12 @@
-# Contributing to ZeroLeaks 🛡️
+# Contributing to SentinelAI 🛡️
 
-Thank you for your interest in contributing to ZeroLeaks! ZeroLeaks is built on a foundation of high craft, clean code, and pioneering **Agent Experience (AX)** and **Developer Experience (DX)** practices.
+Thank you for your interest in contributing to SentinelAI! SentinelAI is built on a foundation of high craft, clean code, and pioneering **Agent Experience (AX)** and **Developer Experience (DX)** practices.
 
 ---
 
 ## 🤖 The AI Agent Native Workflow (AX & DX)
 
-ZeroLeaks was developed natively with autonomous AI coding agents in **Google AI Studio App Builders**, backed by **Google Gemini 3.8 Flash** and **Gemini 3.8 Flash Cyber**.
+SentinelAI was developed natively with autonomous AI coding agents in **Google AI Studio App Builders**, backed by **Google Gemini 3.8 Flash** and **Gemini 3.8 Flash Cyber**.
 
 When contributing—whether as a human developer or when guiding AI agents—we follow strict pipeline principles:
 
@@ -41,8 +41,8 @@ Never invent arbitrary pixel or hex values. Consult and import from `src/tokens/
 
 ### Setup
 ```bash
-git clone https://github.com/milonspace/zeroleaks.git
-cd zeroleaks
+git clone https://github.com/bymilon/sentinel-ai.git
+cd sentinel-ai
 npm install
 npm run dev
 ```
@@ -58,8 +58,9 @@ npm run build
 
 ## 💬 Community & Citation
 
-ZeroLeaks was created by **Milon** ([@milonspace on X](https://x.com/milonspace)).
+SentinelAI was created by **Milon** ([@milonspace on X](https://x.com/milonspace)).
 
 For questions, feature proposals, or to share agent workflows:
+- GitHub Repository: [https://github.com/bymilon/sentinel-ai](https://github.com/bymilon/sentinel-ai)
 - Connect on X: [@milonspace](https://x.com/milonspace)
-- Open an issue or discussion on GitHub.
+- Open an issue or pull request on GitHub.

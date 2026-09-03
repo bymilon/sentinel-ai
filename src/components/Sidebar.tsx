@@ -56,7 +56,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               aria-label="Expand sidebar"
               className="group relative w-9 h-9 rounded-xl flex items-center justify-center hover:bg-[#141414] transition-all focus-ring press-scale cursor-pointer"
             >
-              {/* ZeroLeaks Custom Logo Mark */}
+              {/* SentinelAI Custom Logo Mark */}
               <div className="w-6 h-6 rounded-md bg-white flex items-center justify-center shrink-0 shadow-sm transition-opacity duration-200 group-hover:opacity-0 absolute">
                 <div className="w-2.5 h-2.5 rounded-full bg-black flex items-center justify-center">
                   <div className="w-1 h-1 rounded-full bg-white" />
@@ -69,14 +69,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
         ) : (
           <div className="flex items-center justify-between h-14 shrink-0 px-4 border-b border-[#181818]">
             <div className="flex items-center gap-2.5 overflow-hidden">
-              {/* ZeroLeaks Custom Logo Mark */}
+              {/* SentinelAI Custom Logo Mark */}
               <div className="w-6 h-6 rounded-md bg-white flex items-center justify-center shrink-0 shadow-sm">
                 <div className="w-2.5 h-2.5 rounded-full bg-black flex items-center justify-center">
                   <div className="w-1 h-1 rounded-full bg-white" />
                 </div>
               </div>
               <span className="font-semibold text-[15px] tracking-tight text-white truncate">
-                ZeroLeaks
+                SentinelAI
               </span>
             </div>
 

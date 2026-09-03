@@ -1,16 +1,16 @@
 {
-  "name": "zeroleaks",
+  "name": "sentinelai",
   "version": "1.0.0",
   "description": "Open-Source Enterprise AI Instruction Firewall & Prompt Posture Platform built with Google Gemini 3.8 Flash in AI Studio",
   "author": "Milon (@milonspace) <https://x.com/milonspace>",
   "license": "MIT",
-  "homepage": "https://github.com/milonspace/zeroleaks",
+  "homepage": "https://github.com/bymilon/sentinel-ai",
   "repository": {
     "type": "git",
-    "url": "https://github.com/milonspace/zeroleaks.git"
+    "url": "https://github.com/bymilon/sentinel-ai.git"
   },
   "keywords": [
-    "zeroleaks",
+    "sentinelai",
     "ai-security",
     "gemini-3.8-flash",
     "prompt-injection",
@@ -24,7 +24,7 @@
     "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
-    "clean": "rm -rf dist server.js",
+    "clean": "node -e \"const fs = require('fs'); fs.rmSync('dist', { recursive: true, force: true }); fs.rmSync('server.js', { force: true });\"",
     "lint": "tsc --noEmit"
   },
   "dependencies": {

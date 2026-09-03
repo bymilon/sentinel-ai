@@ -23,8 +23,9 @@
 
 | Task ID | Title | Owner | Priority | Status | Dependencies | Completed At |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **TSK-5.1** | Update `metadata.json` and `index.html` entry points with SentinelAI branding | `dx-agent` | Urgent | In Progress | None | |
-| **TSK-5.2** | Update `package.json` and `LICENSE` manifests to `sentinelai` / SentinelAI | `dx-agent` | High | In Progress | None | |
-| **TSK-5.3** | Update UI components (`Sidebar.tsx`, `DesignSystemModal.tsx`, `ScanDetailDrawer.tsx`, `AgentGuardView.tsx`, `OtherViews.tsx`, `designTokens.ts`) with SentinelAI branding | `ui-branding-agent` | Urgent | In Progress | None | |
-| **TSK-5.4** | Update documentation files (`README.md`, `CONTRIBUTING.md`, `AGENTS.md`) to SentinelAI | `docs-agent` | High | In Progress | None | |
-| **TSK-5.5** | Execute linting & build verification suite ensuring zero regressions | `dx-agent` | Urgent | In Progress | TSK-5.1-5.4 | |
+| **TSK-5.1** | Update `metadata.json` and `index.html` entry points with SentinelAI branding | `dx-agent` | Urgent | Completed | None | 2026-09-03 |
+| **TSK-5.2** | Update `package.json` and `LICENSE` manifests to `sentinelai` / SentinelAI | `dx-agent` | High | Completed | None | 2026-09-03 |
+| **TSK-5.3** | Update UI components (`Sidebar.tsx`, `DesignSystemModal.tsx`, `ScanDetailDrawer.tsx`, `AgentGuardView.tsx`, `OtherViews.tsx`, `designTokens.ts`) with SentinelAI branding | `ui-branding-agent` | Urgent | Completed | None | 2026-09-03 |
+| **TSK-5.4** | Update documentation files (`README.md`, `CONTRIBUTING.md`, `AGENTS.md`) to SentinelAI | `docs-agent` | High | Completed | None | 2026-09-03 |
+| **TSK-5.5** | Execute linting & build verification suite ensuring zero regressions | `dx-agent` | Urgent | Completed | TSK-5.1-5.4 | 2026-09-03 |
+| **TSK-5.6** | Update GitHub repository endpoint to `https://github.com/bymilon/sentinel-ai` across package.json, README, CONTRIBUTING, AGENTS, Header, and Settings view | `dx-agent` | Urgent | Completed | None | 2026-09-03 |

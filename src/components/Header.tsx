@@ -189,17 +189,17 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         )}
 
-        {/* Open Source / Creator Badge */}
+        {/* Open Source / GitHub Link Badge */}
         <a
-          href="https://x.com/milonspace"
+          href="https://github.com/bymilon/sentinel-ai"
           target="_blank"
           rel="noopener noreferrer"
-          title="Open-Source AI Security by @milonspace (Gemini 3.8 Flash)"
+          title="SentinelAI Open Source Repository (https://github.com/bymilon/sentinel-ai)"
           className="hidden xl:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-[#a1a1aa] hover:text-white bg-[#0e0e0e] hover:bg-[#161616] border border-[#222222] transition-colors focus-ring press-scale specular-rim-subtle cursor-pointer"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-          <span className="text-[#d4d4d8]">OSS</span>
-          <span className="text-[#71717a]">by @milonspace</span>
+          <span className="text-[#d4d4d8]">GitHub</span>
+          <span className="text-[#71717a]">bymilon/sentinel-ai</span>
         </a>
 
         {/* Design Tokens Inspector Trigger */}

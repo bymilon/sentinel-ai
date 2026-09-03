@@ -136,7 +136,7 @@ export const SecurityScoreCard: React.FC<SecurityScoreCardProps> = ({
           <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" aria-hidden="true" />
           <span>Last scanned 2 min ago</span>
         </div>
-        <span className="text-[#52525b]">Secured by Zeroleaks</span>
+        <span className="text-[#52525b]">Secured by SentinelAI</span>
       </div>
     </div>
   );

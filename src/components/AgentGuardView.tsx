@@ -29,7 +29,7 @@ export const AgentGuardView: React.FC = () => {
     },
     {
       id: 'guard-4',
-      name: 'Secret & credential masking (ZeroLeaks Engine)',
+      name: 'Secret & credential masking (SentinelAI Engine)',
       desc: 'Automatic regex and token embedding matches to redact API keys, JWTs, and database URLs.',
       enabled: true,
       category: 'Data Loss Prevention',

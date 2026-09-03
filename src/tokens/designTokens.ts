@@ -9,7 +9,7 @@ export interface DesignSystemMetadata {
 }
 
 export const designSystemMeta: DesignSystemMetadata = {
-  name: 'ZeroLeaks Design System',
+  name: 'SentinelAI Design System',
   version: '1.0.0',
   archetype: 'Enterprise Developer Security Platform',
   baseFont: 'SF Pro Rounded, Plus Jakarta Sans, system-ui, sans-serif',

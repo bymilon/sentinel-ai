@@ -66,6 +66,11 @@
       "sourceType": "github",
       "skillPath": "skills/variant/SKILL.md",
       "computedHash": "d66d7c9a0b7c7ee12b7a7cacefebe4234a45284372b2fb6e7ddc1342ffca0f69"
+    },
+    "unslop": {
+      "source": "local",
+      "sourceType": "local",
+      "skillPath": ".agents/skills/unslop/SKILL.md"
     }
   }
 }

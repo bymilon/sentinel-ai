@@ -1,15 +1,16 @@
-# ZeroLeaks Agent Guidelines & AX Operational Protocol
+# SentinelAI Agent Guidelines & AX Operational Protocol
 
-This document defines the persistent instructions and operational rules for AI coding agents operating on the ZeroLeaks repository.
+This document defines the persistent instructions and operational rules for AI coding agents operating on the SentinelAI repository.
 
 ---
 
 ## 1. Project Identity & Architecture
 
-- **Project**: ZeroLeaks (Enterprise AI Prompt Posture & Instruction Leak Firewall)
+- **Project**: SentinelAI (Enterprise AI Prompt Posture & Instruction Leak Firewall)
 - **Foundation Engine**: Google Gemini 3.8 Flash & Gemini 3.8 Flash Cyber ([Research & Announcement Reference](https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/))
 - **Environment**: Google AI Studio App Builders
 - **Creator & Maintainer**: Milon ([@milonspace](https://x.com/milonspace))
+- **GitHub Repository**: [https://github.com/bymilon/sentinel-ai](https://github.com/bymilon/sentinel-ai)
 - **Tech Stack**: React 19, TypeScript, Vite, Tailwind CSS v4, Motion, Lucide Icons
 
 ---
