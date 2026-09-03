@@ -5,6 +5,12 @@ interface SecurityScoreCardProps {
   onViewAll?: () => void;
 }
 
+const SECURITY_CATEGORIES = [
+  { name: 'Injection', score: 42 },
+  { name: 'Extraction', score: 68 },
+  { name: 'Jailbreak', score: 76 },
+];
+
 export const SecurityScoreCard: React.FC<SecurityScoreCardProps> = ({
   score = 65,
   onViewAll,
@@ -18,11 +24,7 @@ export const SecurityScoreCard: React.FC<SecurityScoreCardProps> = ({
   // Calculate dash offset for 65%
   const dashOffset = circumference - (score / 100) * circumference;
 
-  const categories = [
-    { name: 'Injection', score: 42 },
-    { name: 'Extraction', score: 68 },
-    { name: 'Jailbreak', score: 76 },
-  ];
+  const categories = SECURITY_CATEGORIES;
 
   return (
     <div
@@ -74,7 +76,7 @@ export const SecurityScoreCard: React.FC<SecurityScoreCardProps> = ({
               strokeDashoffset={dashOffset}
               strokeLinecap="round"
               fill="transparent"
-              className="transition-all duration-1000 ease-out"
+              className="transition-[stroke-dashoffset] duration-1000 ease-out"
             />
           </svg>
 
@@ -115,7 +117,7 @@ export const SecurityScoreCard: React.FC<SecurityScoreCardProps> = ({
                   aria-valuemax={100}
                 >
                   <div
-                    className="h-full bg-white rounded-full transition-all duration-700"
+                    className="h-full bg-white rounded-full transition-[width] duration-700"
                     style={{ width: `${cat.score}%` }}
                   />
                 </div>

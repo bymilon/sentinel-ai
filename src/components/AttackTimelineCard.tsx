@@ -8,37 +8,38 @@ interface AttackTimelineCardProps {
   onViewAll?: () => void;
 }
 
+const getSeverityBadge = (severity: AttackTimelineItem['severity']) => {
+  switch (severity) {
+    case 'Critical':
+      return (
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#220c0f] text-[#ef4444] border border-[#451419]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#ef4444]" />
+          Critical
+        </span>
+      );
+    case 'High':
+      return (
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#221606] text-[#f59e0b] border border-[#452c08]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b]" />
+          High
+        </span>
+      );
+    case 'Low':
+    default:
+      return (
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#091526] text-[#3b82f6] border border-[#132f57]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6]" />
+          Low
+        </span>
+      );
+  }
+};
+
 export const AttackTimelineCard: React.FC<AttackTimelineCardProps> = ({
   timeline,
   onSelectAttack,
   onViewAll,
 }) => {
-  const getSeverityBadge = (severity: AttackTimelineItem['severity']) => {
-    switch (severity) {
-      case 'Critical':
-        return (
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#220c0f] text-[#ef4444] border border-[#451419]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#ef4444]" />
-            Critical
-          </span>
-        );
-      case 'High':
-        return (
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#221606] text-[#f59e0b] border border-[#452c08]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b]" />
-            High
-          </span>
-        );
-      case 'Low':
-      default:
-        return (
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#091526] text-[#3b82f6] border border-[#132f57]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6]" />
-            Low
-          </span>
-        );
-    }
-  };
 
   return (
     <div

@@ -56,7 +56,7 @@ export const ModelIcon: React.FC<ModelIconProps> = ({ model, className = 'w-4 h-
 
   // Generic fallback AI spark
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M12 2l2.4 6.9 6.9 2.4-6.9 2.4L12 21l-2.4-6.9L2.7 11.3l6.9-2.4L12 2z" />
     </svg>
   );

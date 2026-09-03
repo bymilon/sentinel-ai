@@ -1,49 +1,51 @@
 import React, { useState } from 'react';
 import { ShieldCheck, ToggleLeft, ToggleRight, AlertTriangle, Lock, Cpu, RefreshCw, Zap } from 'lucide-react';
 
+const INITIAL_GUARDS = [
+  {
+    id: 'guard-1',
+    name: 'Delimiter boundary quarantine',
+    desc: 'Intercepts XML, Markdown, and custom delimiter breakout sequences in real time before LLM inference.',
+    enabled: true,
+    category: 'Input Sanitization',
+    blockedCount: 42,
+  },
+  {
+    id: 'guard-2',
+    name: 'Instruction verbatim filter',
+    desc: 'Prevents the model from repeating or outputting system prompt fragments through streaming token entropy checks.',
+    enabled: true,
+    category: 'Output Redaction',
+    blockedCount: 18,
+  },
+  {
+    id: 'guard-3',
+    name: 'Roleplay jailbreak neutralizer',
+    desc: 'Detects DAN persona shifts, hypothetical bypass scenarios, and authority coercion attempts.',
+    enabled: true,
+    category: 'Heuristic Defense',
+    blockedCount: 76,
+  },
+  {
+    id: 'guard-4',
+    name: 'Secret & credential masking (SentinelAI Engine)',
+    desc: 'Automatic regex and token embedding matches to redact API keys, JWTs, and database URLs.',
+    enabled: true,
+    category: 'Data Loss Prevention',
+    blockedCount: 11,
+  },
+  {
+    id: 'guard-5',
+    name: 'Unicode RTL / invisible character strip',
+    desc: 'Cleanses adversarial homoglyphs and hidden bidirectional unicode control characters.',
+    enabled: false,
+    category: 'Input Sanitization',
+    blockedCount: 0,
+  },
+];
+
 export const AgentGuardView: React.FC = () => {
-  const [guards, setGuards] = useState([
-    {
-      id: 'guard-1',
-      name: 'Delimiter boundary quarantine',
-      desc: 'Intercepts XML, Markdown, and custom delimiter breakout sequences in real time before LLM inference.',
-      enabled: true,
-      category: 'Input Sanitization',
-      blockedCount: 42,
-    },
-    {
-      id: 'guard-2',
-      name: 'Instruction verbatim filter',
-      desc: 'Prevents the model from repeating or outputting system prompt fragments through streaming token entropy checks.',
-      enabled: true,
-      category: 'Output Redaction',
-      blockedCount: 18,
-    },
-    {
-      id: 'guard-3',
-      name: 'Roleplay jailbreak neutralizer',
-      desc: 'Detects DAN persona shifts, hypothetical bypass scenarios, and authority coercion attempts.',
-      enabled: true,
-      category: 'Heuristic Defense',
-      blockedCount: 76,
-    },
-    {
-      id: 'guard-4',
-      name: 'Secret & credential masking (SentinelAI Engine)',
-      desc: 'Automatic regex and token embedding matches to redact API keys, JWTs, and database URLs.',
-      enabled: true,
-      category: 'Data Loss Prevention',
-      blockedCount: 11,
-    },
-    {
-      id: 'guard-5',
-      name: 'Unicode RTL / invisible character strip',
-      desc: 'Cleanses adversarial homoglyphs and hidden bidirectional unicode control characters.',
-      enabled: false,
-      category: 'Input Sanitization',
-      blockedCount: 0,
-    },
-  ]);
+  const [guards, setGuards] = useState(INITIAL_GUARDS);
 
   const toggleGuard = (id: string) => {
     setGuards((prev) =>
@@ -75,7 +77,7 @@ export const AgentGuardView: React.FC = () => {
         {guards.map((guard) => (
           <div
             key={guard.id}
-            className="p-5 rounded-2xl border border-[#1c1c1c] bg-[#050505] hover:border-[#2a2a2a] transition-all space-y-3 flex flex-col justify-between specular-rim-subtle"
+            className="p-5 rounded-2xl border border-[#1c1c1c] bg-[#050505] hover:border-[#2a2a2a] transition-colors duration-150 space-y-3 flex flex-col justify-between specular-rim-subtle"
           >
             <div>
               <div className="flex items-start justify-between gap-2">

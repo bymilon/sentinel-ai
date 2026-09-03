@@ -6,19 +6,20 @@ interface MetricCardsProps {
   metrics: MetricCardData[];
 }
 
+const getIcon = (type: MetricCardData['iconType']) => {
+  switch (type) {
+    case 'scan':
+      return <Scan className="w-3.5 h-3.5 text-[#a1a1aa]" />;
+    case 'health':
+      return <Target className="w-3.5 h-3.5 text-[#a1a1aa]" />;
+    case 'leaks':
+      return <Flag className="w-3.5 h-3.5 text-[#a1a1aa]" />;
+    case 'secure':
+      return <ShieldCheck className="w-3.5 h-3.5 text-[#a1a1aa]" />;
+  }
+};
+
 export const MetricCards: React.FC<MetricCardsProps> = ({ metrics }) => {
-  const getIcon = (type: MetricCardData['iconType']) => {
-    switch (type) {
-      case 'scan':
-        return <Scan className="w-3.5 h-3.5 text-[#a1a1aa]" />;
-      case 'health':
-        return <Target className="w-3.5 h-3.5 text-[#a1a1aa]" />;
-      case 'leaks':
-        return <Flag className="w-3.5 h-3.5 text-[#a1a1aa]" />;
-      case 'secure':
-        return <ShieldCheck className="w-3.5 h-3.5 text-[#a1a1aa]" />;
-    }
-  };
 
   return (
     <section

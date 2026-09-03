@@ -40,7 +40,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   return (
     <aside
       id="sidebar-navigation"
-      className={`relative flex flex-col justify-between h-screen bg-black border-e border-[#181818] select-none transition-all duration-300 z-30 ${
+      className={`relative flex flex-col justify-between h-screen bg-black border-e border-[#181818] select-none transition-[width] duration-300 z-30 ${
         collapsed ? 'w-16' : 'w-64'
       }`}
     >
@@ -54,7 +54,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               onClick={onToggleCollapse}
               title="Expand sidebar (Cmd+B)"
               aria-label="Expand sidebar"
-              className="group relative w-9 h-9 rounded-xl flex items-center justify-center hover:bg-[#141414] transition-all focus-ring press-scale cursor-pointer"
+              className="group relative w-9 h-9 rounded-xl flex items-center justify-center hover:bg-[#141414] transition-colors duration-150 focus-ring press-scale cursor-pointer"
             >
               {/* SentinelAI Custom Logo Mark */}
               <div className="w-6 h-6 rounded-md bg-white flex items-center justify-center shrink-0 shadow-sm transition-opacity duration-200 group-hover:opacity-0 absolute">
@@ -117,7 +117,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     onSelectTab(item.id);
                   }
                 }}
-                className={`transition-all focus-ring press-scale cursor-pointer ${
+                className={`transition-colors duration-150 focus-ring press-scale cursor-pointer ${
                   collapsed
                     ? 'w-10 h-10 mx-auto flex items-center justify-center rounded-xl'
                     : 'w-full flex items-center justify-between px-3 py-2 rounded-xl text-[13px] font-medium'
@@ -181,7 +181,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             {/* Progress Bar */}
             <div className="w-full h-1 bg-[#1c1c1c] rounded-full overflow-hidden" role="progressbar" aria-valuenow={96} aria-valuemin={0} aria-valuemax={264}>
               <div
-                className="h-full bg-white rounded-full transition-all duration-500"
+                className="h-full bg-white rounded-full transition-[width] duration-500"
                 style={{ width: `${(96 / 264) * 100}%` }}
               />
             </div>
@@ -214,7 +214,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   strokeDasharray={2 * Math.PI * 10}
                   strokeDashoffset={2 * Math.PI * 10 * (1 - 96 / 264)}
                   strokeLinecap="round"
-                  className="transition-all duration-500"
+                  className="transition-[stroke-dashoffset] duration-500"
                 />
               </svg>
               <Zap className="w-3 h-3 text-[#a1a1aa] absolute" aria-hidden="true" />
@@ -260,19 +260,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
         {/* User Profile Row */}
         {!collapsed ? (
-          <div
+          <button
             id="sidebar-user-profile"
-            role="button"
-            tabIndex={0}
+            type="button"
             aria-label="User profile: Arthur Taylor, Pro plan"
             onClick={() => onSelectTab('settings')}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                onSelectTab('settings');
-              }
-            }}
-            className="flex items-center justify-between p-2 rounded-xl hover:bg-[#0f0f0f] border border-transparent hover:border-[#1c1c1c] transition-colors cursor-pointer focus-ring press-scale"
+            className="w-full flex items-center justify-between p-2 rounded-xl hover:bg-[#0f0f0f] border border-transparent hover:border-[#1c1c1c] transition-colors cursor-pointer focus-ring press-scale text-start"
           >
             <div className="flex items-center gap-2.5 truncate">
               <div className="w-7 h-7 rounded-full bg-[#1c1c1e] text-white flex items-center justify-center font-medium text-xs shrink-0 border border-[#2c2c2e]">
@@ -289,7 +282,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </div>
 
             <ChevronRight className="w-3.5 h-3.5 text-[#52525b] shrink-0" aria-hidden="true" />
-          </div>
+          </button>
         ) : (
           <button
             id="sidebar-user-profile"

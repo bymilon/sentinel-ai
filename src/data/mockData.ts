@@ -86,7 +86,7 @@ export const INITIAL_SCANS: SecurityScan[] = [
       {
         type: 'System Instruction Leak',
         description: 'Exposed internal database schema and support escalation API keys in prompt preamble.',
-        extractedTokens: 'API_SECRET_KEY=live_sk_94883...',
+        extractedTokens: 'API_SECRET_KEY=simulated_test_token_94883...',
         severity: 'Critical',
         remediation: 'Remove hardcoded credentials from prompt templates. Use runtime secret parameterization.',
       },

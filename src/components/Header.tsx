@@ -45,6 +45,30 @@ const TAB_CONFIG: Record<string, { title: string; subtitle: string; badge?: stri
   },
 };
 
+const DEFAULT_NOTIFICATIONS = [
+  {
+    id: 'notif-1',
+    title: 'Critical leak intercepted',
+    desc: 'Claude Haiku blocked a prompt exfiltration attempt.',
+    time: '12m ago',
+    critical: true,
+  },
+  {
+    id: 'notif-2',
+    title: 'Weekly compliance ready',
+    desc: 'OWASP LLM Top 10 automated report has finished.',
+    time: '1h ago',
+    critical: false,
+  },
+  {
+    id: 'notif-3',
+    title: 'Agent Guard rule updated',
+    desc: 'Delimiter boundary quarantine heuristic tuned.',
+    time: '3h ago',
+    critical: false,
+  },
+];
+
 export const Header: React.FC<HeaderProps> = ({
   currentTab = 'overview',
   onOpenNewScan,
@@ -60,13 +84,19 @@ export const Header: React.FC<HeaderProps> = ({
   const notificationsRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
+  // Focus search input when search opens
+  useEffect(() => {
+    if (isSearchOpen) {
+      searchInputRef.current?.focus();
+    }
+  }, [isSearchOpen]);
+
   // Keyboard shortcut: Cmd+K / Ctrl+K to toggle search
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         setIsSearchOpen(true);
-        setTimeout(() => searchInputRef.current?.focus(), 50);
       }
       if (e.key === 'Escape') {
         if (isNotificationsOpen) setIsNotificationsOpen(false);
@@ -90,29 +120,7 @@ export const Header: React.FC<HeaderProps> = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isNotificationsOpen]);
 
-  const notifications = [
-    {
-      id: 'notif-1',
-      title: 'Critical leak intercepted',
-      desc: 'Claude Haiku blocked a prompt exfiltration attempt.',
-      time: '12m ago',
-      critical: true,
-    },
-    {
-      id: 'notif-2',
-      title: 'Weekly compliance ready',
-      desc: 'OWASP LLM Top 10 automated report has finished.',
-      time: '1h ago',
-      critical: false,
-    },
-    {
-      id: 'notif-3',
-      title: 'Agent Guard rule updated',
-      desc: 'Delimiter boundary quarantine heuristic tuned.',
-      time: '3h ago',
-      critical: false,
-    },
-  ];
+  const notifications = DEFAULT_NOTIFICATIONS;
 
   return (
     <header
@@ -157,7 +165,7 @@ export const Header: React.FC<HeaderProps> = ({
               onBlur={() => {
                 if (!searchQuery) setIsSearchOpen(false);
               }}
-              className="ps-8 pe-7 py-1 text-xs sm:text-xs text-base bg-[#0f0f0f] border border-[#2a2a2e] rounded-full text-white placeholder-[#71717a] focus:outline-none focus:border-[#52525b] w-44 sm:w-64 transition-all focus-ring"
+              className="ps-8 pe-7 py-1 text-xs sm:text-xs text-base bg-[#0f0f0f] border border-[#2a2a2e] rounded-full text-white placeholder-[#71717a] focus:outline-none focus:border-[#52525b] w-44 sm:w-64 transition-colors duration-150 focus-ring"
             />
             {searchQuery && (
               <button
@@ -303,7 +311,7 @@ export const Header: React.FC<HeaderProps> = ({
           type="button"
           aria-label="Launch new security scan"
           onClick={onOpenNewScan}
-          className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-black hover:bg-neutral-200 transition-all font-medium text-[13px] shadow-[0_1px_8px_rgba(255,255,255,0.12)] press-scale focus-ring cursor-pointer"
+          className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-black hover:bg-neutral-200 transition-colors duration-150 font-medium text-[13px] shadow-[0_1px_8px_rgba(255,255,255,0.12)] press-scale focus-ring cursor-pointer"
         >
           <div className="w-4 h-4 rounded-full border border-black/40 flex items-center justify-center">
             <Plus className="w-2.5 h-2.5 stroke-[2.5]" aria-hidden="true" />

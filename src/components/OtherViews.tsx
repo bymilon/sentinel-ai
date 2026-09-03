@@ -1,35 +1,44 @@
 import React, { useState } from 'react';
 import { FileText, Download, Check, Copy, ExternalLink, Sparkles } from 'lucide-react';
 
+const REPORTS_DATA = [
+  {
+    title: 'Q1 2026 AI red-teaming & security posture audit',
+    date: 'Feb 28, 2026',
+    size: '2.4 MB',
+    type: 'Executive PDF',
+    status: 'Ready',
+    score: '65% AVG Health',
+  },
+  {
+    title: 'OWASP Top 10 for LLMs compliance certification',
+    date: 'Feb 15, 2026',
+    size: '1.8 MB',
+    type: 'Compliance Export',
+    status: 'Ready',
+    score: 'Passing (8/10)',
+  },
+  {
+    title: 'Monthly adversarial prompt extraction vector log',
+    date: 'Jan 31, 2026',
+    size: '4.1 MB',
+    type: 'Telemetry Archive',
+    status: 'Archived',
+    score: '32 Incidents Intercepted',
+  },
+];
+
+const TEAM_MEMBERS_DATA = [
+  { name: 'Arthur Taylor', email: 'arthur@sentinelai.internal', role: 'SecOps Lead (You)', avatar: 'A', status: 'Owner' },
+  { name: 'Elena Rostova', email: 'elena@sentinelai.internal', role: 'Prompt Engineer', avatar: 'E', status: 'Admin' },
+  { name: 'Marcus Chen', email: 'marcus@sentinelai.internal', role: 'Security Architect', avatar: 'M', status: 'Member' },
+  { name: 'Sophia Kim', email: 'sophia@sentinelai.internal', role: 'Compliance Officer', avatar: 'S', status: 'Member' },
+];
+
 export const ReportsView: React.FC = () => {
   const [downloading, setDownloading] = useState<string | null>(null);
 
-  const reports = [
-    {
-      title: 'Q1 2026 AI red-teaming & security posture audit',
-      date: 'Feb 28, 2026',
-      size: '2.4 MB',
-      type: 'Executive PDF',
-      status: 'Ready',
-      score: '65% AVG Health',
-    },
-    {
-      title: 'OWASP Top 10 for LLMs compliance certification',
-      date: 'Feb 15, 2026',
-      size: '1.8 MB',
-      type: 'Compliance Export',
-      status: 'Ready',
-      score: 'Passing (8/10)',
-    },
-    {
-      title: 'Monthly adversarial prompt extraction vector log',
-      date: 'Jan 31, 2026',
-      size: '4.1 MB',
-      type: 'Telemetry Archive',
-      status: 'Archived',
-      score: '32 Incidents Intercepted',
-    },
-  ];
+  const reports = REPORTS_DATA;
 
   const handleDownload = (title: string) => {
     setDownloading(title);
@@ -56,7 +65,7 @@ export const ReportsView: React.FC = () => {
         {reports.map((report) => (
           <div
             key={report.title}
-            className="flex items-center justify-between p-4 rounded-2xl border border-[#1c1c1c] bg-[#050505] hover:border-[#2a2a2a] transition-all specular-rim-subtle"
+            className="flex items-center justify-between p-4 rounded-2xl border border-[#1c1c1c] bg-[#050505] hover:border-[#2a2a2a] transition-colors duration-150 specular-rim-subtle"
           >
             <div className="flex items-center gap-3.5 truncate me-3">
               <div className="w-9 h-9 rounded-xl bg-[#0e0e0e] border border-[#222] flex items-center justify-center shrink-0">
@@ -102,12 +111,7 @@ export const ReportsView: React.FC = () => {
 };
 
 export const TeamsView: React.FC = () => {
-  const members = [
-    { name: 'Arthur Taylor', email: 'arthur@sentinelai.internal', role: 'SecOps Lead (You)', avatar: 'A', status: 'Owner' },
-    { name: 'Elena Rostova', email: 'elena@sentinelai.internal', role: 'Prompt Engineer', avatar: 'E', status: 'Admin' },
-    { name: 'Marcus Chen', email: 'marcus@sentinelai.internal', role: 'Security Architect', avatar: 'M', status: 'Member' },
-    { name: 'Sophia Kim', email: 'sophia@sentinelai.internal', role: 'Compliance Officer', avatar: 'S', status: 'Member' },
-  ];
+  const members = TEAM_MEMBERS_DATA;
 
   return (
     <div className="p-6 space-y-6">
@@ -182,7 +186,7 @@ export const SettingsView: React.FC = () => {
               id="api-key-input"
               type="password"
               readOnly
-              value="sai_live_9488301726a4f901cb6e"
+              value="sai_test_9488301726a4f901cb6e"
               className="flex-1 px-3 py-2 bg-[#090909] border border-[#222] rounded-xl text-[#8e8e93] focus:outline-none focus:border-[#444]"
             />
             <button

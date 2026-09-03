@@ -10,6 +10,32 @@ interface RecentActivityTableProps {
   searchFilter?: string;
 }
 
+const getStatusDisplay = (status: SecurityScan['status']) => {
+  switch (status) {
+    case 'Critical':
+      return (
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#ef4444]" />
+          <span className="text-white text-[13px] font-normal">Critical</span>
+        </div>
+      );
+    case 'Vulnerable':
+      return (
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b]" />
+          <span className="text-white text-[13px] font-normal">Vulnerable</span>
+        </div>
+      );
+    case 'Secure':
+      return (
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
+          <span className="text-white text-[13px] font-normal">Secure</span>
+        </div>
+      );
+  }
+};
+
 export const RecentActivityTable: React.FC<RecentActivityTableProps> = ({
   scans,
   onSelectScan,
@@ -31,32 +57,6 @@ export const RecentActivityTable: React.FC<RecentActivityTableProps> = ({
 
     return matchesSearch && matchesStatus;
   });
-
-  const getStatusDisplay = (status: SecurityScan['status']) => {
-    switch (status) {
-      case 'Critical':
-        return (
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#ef4444]" />
-            <span className="text-white text-[13px] font-normal">Critical</span>
-          </div>
-        );
-      case 'Vulnerable':
-        return (
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b]" />
-            <span className="text-white text-[13px] font-normal">Vulnerable</span>
-          </div>
-        );
-      case 'Secure':
-        return (
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
-            <span className="text-white text-[13px] font-normal">Secure</span>
-          </div>
-        );
-    }
-  };
 
   return (
     <section id="recent-activity-section" aria-labelledby="heading-recent-activity" className="p-6 bg-black">
@@ -126,16 +126,7 @@ export const RecentActivityTable: React.FC<RecentActivityTableProps> = ({
                   <tr
                     key={scan.id}
                     onClick={() => onSelectScan(scan)}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`View audit report for ${scan.model}, status ${scan.status}, ${scan.leaks} leaks detected`}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        onSelectScan(scan);
-                      }
-                    }}
-                    className="group hover:bg-[#080808] transition-colors cursor-pointer focus-ring"
+                    className="group hover:bg-[#080808] transition-colors cursor-pointer"
                   >
                     {/* Status */}
                     <td className="py-3.5 px-4 text-start">{getStatusDisplay(scan.status)}</td>
@@ -193,6 +184,10 @@ export const RecentActivityTable: React.FC<RecentActivityTableProps> = ({
                     <td className="py-3.5 px-4 text-end">
                       <button
                         type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onSelectScan(scan);
+                        }}
                         aria-label={`Inspect ${scan.model} scan details`}
                         className="p-1 rounded text-[#52525b] group-hover:text-white transition-colors focus-ring press-scale cursor-pointer"
                       >

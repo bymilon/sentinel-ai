@@ -8,21 +8,52 @@ interface ScanDetailDrawerProps {
   onClose: () => void;
 }
 
+const getStatusBadge = (status: SecurityScan['status']) => {
+  switch (status) {
+    case 'Critical':
+      return (
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#220c0f] text-[#ef4444] border border-[#451419]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#ef4444]" />
+          Critical Vulnerability
+        </span>
+      );
+    case 'Vulnerable':
+      return (
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#221606] text-[#f59e0b] border border-[#452c08]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b]" />
+          Vulnerable
+        </span>
+      );
+    case 'Secure':
+      return (
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#051c10] text-[#22c55e] border border-[#0c4a2b]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
+          Secure Prompt
+        </span>
+      );
+  }
+};
+
 export const ScanDetailDrawer: React.FC<ScanDetailDrawerProps> = ({ scan, onClose }) => {
   const [copiedPatch, setCopiedPatch] = useState(false);
+  const onCloseRef = React.useRef(onClose);
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  });
 
   // Escape key listener
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        onClose();
+        onCloseRef.current();
       }
     };
     if (scan) {
       window.addEventListener('keydown', handleKeyDown);
     }
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [scan, onClose]);
+  }, [scan]);
 
   if (!scan) return null;
 
@@ -32,36 +63,10 @@ export const ScanDetailDrawer: React.FC<ScanDetailDrawerProps> = ({ scan, onClos
     setTimeout(() => setCopiedPatch(false), 2000);
   };
 
-  const getStatusBadge = (status: SecurityScan['status']) => {
-    switch (status) {
-      case 'Critical':
-        return (
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#220c0f] text-[#ef4444] border border-[#451419]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#ef4444]" />
-            Critical Vulnerability
-          </span>
-        );
-      case 'Vulnerable':
-        return (
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#221606] text-[#f59e0b] border border-[#452c08]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#f59e0b]" />
-            Vulnerable
-          </span>
-        );
-      case 'Secure':
-        return (
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#051c10] text-[#22c55e] border border-[#0c4a2b]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e]" />
-            Secure Prompt
-          </span>
-        );
-    }
-  };
-
   return (
-    <div
-      className="fixed inset-0 z-50 flex justify-end bg-black/70 backdrop-blur-xs overscroll-contain"
-      role="dialog"
+    <dialog
+      open
+      className="fixed inset-0 z-50 flex justify-end bg-black/70 backdrop-blur-xs overscroll-contain m-0 border-0 max-w-none max-h-none w-full h-full"
       aria-modal="true"
       aria-labelledby="scan-drawer-title"
     >
@@ -131,7 +136,7 @@ export const ScanDetailDrawer: React.FC<ScanDetailDrawerProps> = ({ scan, onClos
             {scan.vulnerabilities && scan.vulnerabilities.length > 0 ? (
               scan.vulnerabilities.map((vuln, i) => (
                 <div
-                  key={i}
+                  key={`${scan.id}-vuln-${vuln.type}-${i}`}
                   className="p-4 rounded-2xl border border-[#221606] bg-[#0c0803] space-y-2.5"
                 >
                   <div className="flex items-center justify-between">
@@ -228,6 +233,6 @@ export const ScanDetailDrawer: React.FC<ScanDetailDrawerProps> = ({ scan, onClos
           </button>
         </div>
       </div>
-    </div>
+    </dialog>
   );
 };

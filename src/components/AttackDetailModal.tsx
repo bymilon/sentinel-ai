@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X, AlertOctagon, Check, Copy, ShieldCheck } from 'lucide-react';
 import { AttackTimelineItem } from '../types';
 
@@ -9,19 +9,24 @@ interface AttackDetailModalProps {
 
 export const AttackDetailModal: React.FC<AttackDetailModalProps> = ({ attack, onClose }) => {
   const [copiedPayload, setCopiedPayload] = useState(false);
+  const onCloseRef = useRef(onClose);
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  });
 
   // Escape key listener
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        onClose();
+        onCloseRef.current();
       }
     };
     if (attack) {
       window.addEventListener('keydown', handleKeyDown);
     }
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [attack, onClose]);
+  }, [attack]);
 
   if (!attack) return null;
 
@@ -32,9 +37,9 @@ export const AttackDetailModal: React.FC<AttackDetailModalProps> = ({ attack, on
   };
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-      role="dialog"
+    <dialog
+      open
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm m-0 border-0 max-w-none max-h-none w-full h-full"
       aria-modal="true"
       aria-labelledby="attack-modal-title"
     >
@@ -131,6 +136,6 @@ export const AttackDetailModal: React.FC<AttackDetailModalProps> = ({ attack, on
           </button>
         </div>
       </div>
-    </div>
+    </dialog>
   );
 };
