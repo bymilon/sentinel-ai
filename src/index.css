@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Design Tokens: Color Palette */
+    --color-canvas-black: #000000;
+    --color-surface-base: #050505;
+    --color-surface-raised: #0a0a0a;
+    --color-surface-overlay: #121212;
+    --color-surface-active: #171717;
+    
+    /* Borders */
+    --color-border-subtle: #141414;
+    --color-border-grid: #1c1c1c;
+    --color-border-prominent: #2a2a2a;
+    --color-border-crosshair: #3b3b3b;
+
+    /* Text */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #8e8e93;
+    --color-text-muted: #636366;
+    --color-text-dimmed: #3a3a3c;
+
+    /* Accents & Status */
+    --color-status-critical: #ef4444;
+    --color-status-critical-bg: #1c080a;
+    --color-status-critical-border: #450a0a;
+    
+    --color-status-warning: #f59e0b;
+    --color-status-warning-bg: #1c1404;
+    --color-status-warning-border: #451a03;
+
+    --color-status-secure: #22c55e;
+    --color-status-secure-bg: #051b10;
+    --color-status-secure-border: #064e3b;
+
+    --color-status-info: #3b82f6;
+    --color-status-info-bg: #081325;
+    --color-status-info-border: #1e3a8a;
+
+    /* Typography */
+    --font-sf-rounded: "SF Pro Rounded", "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  }
+
+  body {
+    background-color: var(--color-canvas-black);
+    color: var(--color-text-primary);
+    font-family: var(--font-sf-rounded);
+    letter-spacing: -0.015em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Interactive cursor pointer reset across the application */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  summary,
+  label[for],
+  select:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [role="button"][aria-disabled="true"],
+  [disabled] {
+    cursor: not-allowed;
+  }
+}
+
+/* Typography refinements from better-typography */
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle top-edge specular highlight for deep OLED dark mode */
+.specular-rim {
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+.specular-rim-subtle {
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Tactile button press feedback */
+.press-scale {
+  transition-property: transform, background-color, border-color, color, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.press-scale:active {
+  transform: scale(0.96);
+}
+
+/* Focus visible styles complying with better-accessibility */
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #000000, 0 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+/* Custom dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
